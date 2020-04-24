@@ -73,7 +73,7 @@ Estas tablas pertenece al objeto tweet, uno de los dos objetos incluidos en el s
 Por [políticas de privacidad de la API de Twitter](https://developer.twitter.com/en/developer-terms/policy#4-e), la distribución del contenido de Twitter fuera de su servicio no está permitido exceptuando los ids, por lo cual en este repositorio se publicará sólo los ids en 2 tipos de archivos en donde el archivo `dataset/etiquetas.txt` incluirá el listado de las noticias acompañada con la etiqueta de veracidad y los archivos `dataset/<id_noticia>/<id_noticia>.min` listará los elementos del árbol.
 
 Extracto del archivo [`dataset/etiquetas.txt`](./dataset/etiquetas.txt) que lista las noticias en ids con su etiqueta de veracidad asociada.
-```json
+```python
 
 No rumor:1198751152625590273
 No rumor:1198949722414878720
@@ -99,7 +99,7 @@ No verificado:1147593398498603011
 ```
 
 Extracto del archivo `dataset/<id_noticia>/<id_noticia>.min` que lista las acciones que han ocurrido en una noticia, en este caso, a la noticia de id: [1147594488375853061](./dataset/1147594488375853061/1147594488375853061.min) en donde a la izquierda indica el tipo de acción, seguido del evento en cuestión incluyendo el id del usuario quien ha realizado la acción, el id de dicha de acción y el tiempo transcurrido desde la publicación de la noticia en minutos, y luego a la derecha, aparece el evento a la cual se está interactuando que pude ser la noticia origina o bien un comentario.
-```json
+```python
 
 retweet: ['3092564962','1147647134293987328','209.20']->['15590302','1147594488375853061','0.0']
 retweet: ['395545788','1147746783277322240','605.17']->['15590302','1147594488375853061','0.0']
