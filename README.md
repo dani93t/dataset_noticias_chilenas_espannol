@@ -99,7 +99,7 @@ No verificado:1147593398498603011
 ```
 
 Extracto del archivo `dataset/<id_noticia>/<id_noticia>.min` que lista las acciones que han ocurrido en una noticia, en este caso, a la noticia de id: [1147594488375853061](./dataset/1147594488375853061/1147594488375853061.min) en donde a la izquierda indica el tipo de acción, seguido del evento en cuestión incluyendo el id del usuario quien ha realizado la acción, el id de dicha de acción y el tiempo transcurrido desde la publicación de la noticia en minutos, y luego a la derecha, aparece el evento a la cual se está interactuando que pude ser la noticia origina o bien un comentario.
-```python
+```php
 
 retweet: ['3092564962','1147647134293987328','209.20']->['15590302','1147594488375853061','0.0']
 retweet: ['395545788','1147746783277322240','605.17']->['15590302','1147594488375853061','0.0']
