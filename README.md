@@ -6,7 +6,7 @@ Dataset creado para el Trabajo de Titulación de pregrado de Ingeniería Civil e
 
 ## Descripción
 
-El dataset incluye una colección de 300 noticias ocurridas Chile que sucedieron entre los meses de junio de 2019 y enero 2020, todas publicadas en Twitter. Los temas más frecuentes en este dataset está la Copa américa 2019, el paro docente, el eclipse solar, el corte de agua en Osorno, y la crisis social. Cada noticia incluye el id de la publicación, el texto de la publicación, fecha y hora de publicación, la etiqueta de veracidad de 4 estados y el árbol de propagación asociada a ésta. La obtención de los datos incluidos en este dataset fue a través del uso de la API de Twitter usando la cuenta gratuita la cual presenta ciertas limitaciones motivo por la cual se omitieron las "citas" en el dataset por lo costoso de obtenerlos todos. Si bien este dataset está pensado para que sea usado en Machine Learning, éste no está dividido en test y train la cual debe hacer este proceso manualmente.
+El dataset incluye un fragmento de 40 noticias ocurridas en Chile de un total de 300, que sucedieron entre los meses de junio de 2019 y enero 2020, todas publicadas en Twitter. Los temas más frecuentes en este dataset está la Copa américa 2019, el paro docente, el eclipse solar, el corte de agua en Osorno, y la crisis social. Cada noticia incluye el id de la publicación, el texto de la publicación, fecha y hora de publicación, la etiqueta de veracidad de 4 estados y el árbol de propagación asociada a ésta. La obtención de los datos incluidos en este dataset fue a través del uso de la API de Twitter usando la cuenta gratuita la cual presenta ciertas limitaciones motivo por la cual se omitieron las "citas" en el dataset por lo costoso de obtenerlos todos. Si bien este dataset está pensado para que sea usado en Machine Learning, éste no está dividido en test y train la cual debe hacer este proceso manualmente.
 
 La creación de este dataset fue en base a la necesidad de usar un conjunto de datos en español ya que en trabajos relacionados en la investigación de detección de noticias falsas, que es un área que está su etapa madura, no existe datasets con noticias en español con etiquetas de veracidad, aunque si bien puede ser creado usando la API de Twitter, puede tardar un tiempo en recolectar datos suficientes para trabajar con ello, sobre todo si se se usa la cuenta gratuita de la API, y a eso también se debe sumar el tiempo necesario para poder etiquetar todas las noticias descargadas. 
 
@@ -73,50 +73,39 @@ Estas tablas pertenece al objeto tweet, uno de los dos objetos incluidos en el s
 Por [políticas de privacidad de la API de Twitter](https://developer.twitter.com/en/developer-terms/policy#4-e), la distribución del contenido de Twitter fuera de su servicio no está permitido exceptuando los ids, por lo cual en este repositorio se publicará sólo los ids en 2 tipos de archivos en donde el archivo `dataset/etiquetas.txt` incluirá el listado de las noticias acompañada con la etiqueta de veracidad y los archivos `dataset/<id_noticia>/<id_noticia>.min` listará los elementos del árbol.
 
 Extracto del archivo [`dataset/etiquetas.txt`](./dataset/etiquetas.txt) que lista las noticias en ids con su etiqueta de veracidad asociada.
-```python
+```javascript
 
-No rumor:1198751152625590273
-No rumor:1198949722414878720
-No rumor:1200486652206100485
-No rumor:1211261870973366272
-No rumor:1212216244226678785
-Verdadero:1174053089231462405
-Verdadero:1183134595883192321
-Verdadero:1184107014995136513
-Verdadero:1184109880904429570
-Verdadero:1184111346113232896
-Falso:1203750681460510720
-Falso:1207117882796204033
-Falso:1207339766347378689
-Falso:1207345563555024896
-Falso:1207415296715300865
-No verificado:1145470228144558080
-No verificado:1145843840332550145
-No verificado:1146468651773702146
-No verificado:1146478448732491777
-No verificado:1147593398498603011
+No rumor:1149169121915023360
+No rumor:1149895300812804096
+No rumor:1150110141523492865
+No verificado:1150188608768360449
+Verdadero:1152564330346536964
+Verdadero:1172179932421808130
+No verificado:1173691271006826496
+No rumor:1174324420481036289
+No verificado:1174854243532050432
+No rumor:1182419214356930560
 
 ```
 
-Extracto del archivo `dataset/<id_noticia>/<id_noticia>.min` que lista las acciones que han ocurrido en una noticia, en este caso, a la noticia de id: [1147594488375853061](./dataset/1147594488375853061/1147594488375853061.min) en donde a la izquierda indica el tipo de acción, seguido del evento en cuestión incluyendo el id del usuario quien ha realizado la acción, el id de dicha de acción y el tiempo transcurrido desde la publicación de la noticia en minutos, y luego a la derecha, aparece el evento a la cual se está interactuando que pude ser la noticia origina o bien un comentario.
+Extracto del archivo `dataset/<id_noticia>/<id_noticia>.min` que lista las acciones que han ocurrido en una noticia, en este caso, a la noticia de id: [1188132627498307584](./dataset/1188132627498307584/1188132627498307584.min) en donde a la izquierda indica el tipo de acción, seguido del evento en cuestión incluyendo el id del usuario quien ha realizado la acción, el id de dicha de acción y el tiempo transcurrido desde la publicación de la noticia en minutos, y luego a la derecha, aparece el evento a la cual se está interactuando que pude ser la noticia origina o bien un comentario.
 ```php
 
-retweet: ['3092564962','1147647134293987328','209.20']->['15590302','1147594488375853061','0.0']
-retweet: ['395545788','1147746783277322240','605.17']->['15590302','1147594488375853061','0.0']
-reply: ['110804769','1147594680219029504','0.77']->['15590302','1147594488375853061','0.0']
-reply: ['1655755712','1147594814462013442','1.30']->['15590302','1147594488375853061','0.0']
-reply: ['140511078','1147594841020387329','1.42']->['15590302','1147594488375853061','0.0']
-reply: ['197185110','1147618254719979522','94.45']->['140511078','1147594841020387329','1.42']
-reply: ['140511078','1147673338233458688','313.33']->['197185110','1147618254719979522','94.45']
-reply: ['100478953','1147594879033315328','1.57']->['15590302','1147594488375853061','0.0']
-reply: ['1074355840377860098','1147594880493006848','1.57']->['15590302','1147594488375853061','0.0']
-reply: ['419484554','1147594910310313991','1.68']->['15590302','1147594488375853061','0.0']
-reply: ['368668381','1147594932175212545','1.77']->['15590302','1147594488375853061','0.0']
-reply: ['824262596','1147595479146008577','3.95']->['368668381','1147594932175212545','1.77']
-retweet: ['3406666055','1147597119148187648','10.47']->['824262596','1147595479146008577','3.95']
-retweet: ['1199381186','1147599236374106112','18.87']->['824262596','1147595479146008577','3.95']
-reply: ['824262596','1147599272608706560','19.02']->['824262596','1147595479146008577','3.95']
-
+retweet: ['3222122855','1188257116844445696','494.68']->['910572234166751235','1188153648720830464','83.53']
+reply: ['2190186869','1188155562502119427','91.13']->['910572234166751235','1188153648720830464','83.53']
+reply: ['3681725475','1188151882444873728','76.52']->['910572234166751235','1188132627498307584','0.0']
+reply: ['120153485','1188157779627954176','99.95']->['910572234166751235','1188132627498307584','0.0']
+retweet: ['910572234166751235','1188159231255601152','105.72']->['120153485','1188157779627954176','99.95']
+retweet: ['1851909912','1188160428532215809','110.47']->['120153485','1188157779627954176','99.95']
+retweet: ['1471726465','1188162996775870464','120.68']->['120153485','1188157779627954176','99.95']
+retweet: ['1152997665715752965','1188177729188843521','179.22']->['120153485','1188157779627954176','99.95']
+retweet: ['3222122855','1188256512654876675','492.28']->['120153485','1188157779627954176','99.95']
+reply: ['304042341','1188158156163158017','101.43']->['910572234166751235','1188132627498307584','0.0']
+reply: ['885314323446472706','1188159894639259648','108.35']->['910572234166751235','1188132627498307584','0.0']
+retweet: ['3222122855','1188256680640942080','492.95']->['885314323446472706','1188159894639259648','108.35']
+reply: ['317854608','1188163298967113728','121.88']->['885314323446472706','1188159894639259648','108.35']
+reply: ['1099355116765876225','1188163302699995138','121.90']->['910572234166751235','1188132627498307584','0.0']
+reply: ['1187497687387725825','1188169650238038017','147.12']->['910572234166751235','1188132627498307584','0.0']
 ```
 
 ## Acceso al dataset completo
